@@ -1,0 +1,51 @@
+<div
+  *ngIf="cartItems.length == 0"
+  class="m-auto my-3 d-flex justify-content-center w-50 alert alert-danger"
+>
+  Your cart is empty.
+</div>
+<div class="container col-8" *ngIf="cartItems.length">
+  <table class="table table-hover text-center mt-5 align-items-center">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Quantity</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let item of cartItems"
+        class="align-middle"
+        routerLink="/products/productdetails/{{ item.product.id }}"
+      >
+        <th scope="row">{{ cartItems.indexOf(item) + 1 }}</th>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.product.unitPrice | discount: item.product.discount }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="removeFromCart(item.product)"
+          >
+            Remove
+          </button>
+        </td>
+      </tr>
+      <tr class="fw-bold align-middle">
+        <td>Total Price</td>
+        <td></td>
+        <td></td>
+        <td>{{ cartTotalPrice() }}</td>
+        <td>
+          <button type="button" class="btn btn-success" routerLink="payment">
+            Confirm cart
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

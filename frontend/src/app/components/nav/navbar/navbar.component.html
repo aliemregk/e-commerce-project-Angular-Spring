@@ -1,0 +1,19 @@
+<div class="container py-2">
+  <ul class="nav justify-content-center" *ngIf="!dataLoaded">
+    <li class="nav-item px-3 py-2">All Products</li>
+  </ul>
+  <ul class="nav justify-content-center" *ngIf="dataLoaded">
+    <li class="nav-item px-3 py-2" routerLink="/products">All Products</li>
+    <li class="nav-item px-3 py-2" routerLink="/products/discounted">
+      Discounted Products
+    </li>
+
+    <li
+      class="nav-item px-3 py-2"
+      *ngFor="let category of categories"
+      routerLink="/products/category/{{ category.id }}"
+    >
+      {{ category.name }}
+    </li>
+  </ul>
+</div>

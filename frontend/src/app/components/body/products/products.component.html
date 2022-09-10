@@ -1,0 +1,67 @@
+<div class="my-3">
+  <app-search-bar></app-search-bar>
+</div>
+<app-loading *ngIf="!dataLoaded"></app-loading>
+<div class="container d-flex flex-row justify-content-between">
+  <div class="col-10 m-auto">
+    <div class="row row-cols-2 row-cols-md-4 g-3">
+      <div
+        class="col-2"
+        *ngFor="let product of products | filter: classReference.filterText"
+      >
+        <div class="card shadow-sm">
+          <img
+            routerLink="/products/productdetails/{{ product.id }}"
+            class="bd-placeholder-img card-img-top"
+            [src]="product.coverImgUrl"
+            alt="{{ product.name }} photo"
+            style="height: 100%; width: 100%"
+          />
+          <div class="discounted fs-5" *ngIf="product.discount">%</div>
+          <div class="card-body">
+            <div>
+              <div
+                routerLink="/products/category/{{
+                  product.categoryId
+                }}/productdetails/{{ product.id }}"
+              >
+                <h5 class="card-title name overflow-hidden">
+                  {{ product.name }}
+                </h5>
+              </div>
+              <div class="col-12">
+                <div class="row d-flex flex-row justify-content-end">
+                  <div class="col-5">
+                    <p
+                      class="pt-2 fs-5 overflow-hidden"
+                      *ngIf="!product.discount"
+                    >
+                      {{ product.unitPrice | discount: product.discount }}
+                    </p>
+                    <p
+                      class="pt-2 fs-5 overflow-hidden discounted-price"
+                      *ngIf="product.discount"
+                    >
+                      {{ product.unitPrice | discount: product.discount }}
+                    </p>
+                  </div>
+                  <div
+                    class="col-7 d-flex flex-row justify-content-end align-items-center"
+                  >
+                    <button
+                      type="button"
+                      class="btn btn-primary h-75"
+                      (click)="addToCart(product)"
+                    >
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

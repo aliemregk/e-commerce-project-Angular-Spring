@@ -1,0 +1,43 @@
+<div class="container my-3 d-flex flex-row justify-content-between">
+  <div class="container col-10">
+    <table class="table table-hover text-center align-middle">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Category Name</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <th class="fw-bold" scope="row">
+            {{ categories.indexOf(category) + 1 }}
+          </th>
+          <td routerLink="/categorydetails/{{ category.id }}">
+            {{ category.name }}
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              (click)="delete(category.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              routerLink="/addcategory"
+            >
+              Add New Category
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

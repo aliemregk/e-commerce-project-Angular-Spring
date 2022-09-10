@@ -1,0 +1,7 @@
+#register {
+  height: 2.5em;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}

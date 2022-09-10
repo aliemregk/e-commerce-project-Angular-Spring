@@ -1,0 +1,59 @@
+<div class="container my-3 d-flex flex-row justify-content-between">
+  <div class="container col-10">
+    <table class="table table-hover text-center align-middle">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">Discounted Price</th>
+          <th scope="col">Stock</th>
+          <th scope="col">Discount (%)</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <th class="fw-bold" scope="row">
+            {{ products.indexOf(product) + 1 }}
+          </th>
+          <td routerLink="/productdetails/{{ product.id }}">
+            {{ product.name }}
+          </td>
+          <td routerLink="/productdetails/{{ product.id }}">
+            {{ product.unitPrice }}
+          </td>
+          <td routerLink="/productdetails/{{ product.id }}">
+            {{ product.unitPrice | discount: product.discount }}
+          </td>
+          <td routerLink="/productdetails/{{ product.id }}">
+            {{ product.unitsInStock }}
+          </td>
+          <td routerLink="/productdetails/{{ product.id }}">
+            %{{ product.discount }}
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              (click)="delete(product.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="7">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              routerLink="/addproduct"
+            >
+              Add New Product
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

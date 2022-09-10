@@ -1,0 +1,36 @@
+<div class="container my-3 d-flex flex-row justify-content-between">
+  <div class="container col-10">
+    <table class="table table-hover text-center align-middle">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Number of Photos</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <th class="fw-bold" scope="row">
+            {{ products.indexOf(product) + 1 }}
+          </th>
+          <td routerLink="/productphotos/{{ product.id }}">
+            {{ product.name }}
+          </td>
+          <td routerLink="/productphotos/{{ product.id }}">
+            {{ photoNumbers[product.id] }}/5
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              routerLink="/addphoto/{{ product.id }}"
+            >
+              Add New Photo
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

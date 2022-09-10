@@ -1,0 +1,31 @@
+<div class="carousel-inner rounded-3" *ngIf="!dataLoaded">
+  <app-loading></app-loading>
+</div>
+<div class="card col-4 m-auto my-3" *ngIf="dataLoaded">
+  <div class="card-header">
+    <h5 class="title text-center">Edit Photo</h5>
+  </div>
+  <div class="card-body">
+    <div [formGroup]="photoUpdateForm" class="container col-md-10">
+      <div class="mb-3">
+        <label for="url">Photo URL</label>
+        <div class="form-group">
+          <input
+            id="url"
+            type="text"
+            class="form-control"
+            formControlName="url"
+            placeholder="Enter URL here.."
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-fill btn-primary" (click)="update()">
+        Update Photo
+      </button>
+    </div>
+  </div>
+</div>

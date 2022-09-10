@@ -1,0 +1,7 @@
+svg {
+  border-radius: 1rem;
+}
+.card {
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+tr {
+  cursor: pointer;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+table {
+  color: #2373ff;
+}

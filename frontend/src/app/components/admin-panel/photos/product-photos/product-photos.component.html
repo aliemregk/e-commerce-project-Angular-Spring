@@ -1,0 +1,41 @@
+<div class="carousel-inner rounded-3" *ngIf="!dataLoaded && !photosLoaded">
+  <app-loading></app-loading>
+</div>
+<div class="card col-8 m-auto my-3" *ngIf="dataLoaded && photosLoaded">
+  <div class="card-header">
+    <h5 class="title text-center my-1">{{ product.name }}</h5>
+  </div>
+  <div class="card-body">
+    <div class="container d-flex flex-row justify-content-center">
+      <div class="col-10 m-auto">
+        <div class="row row-cols-2 row-cols-md-4 g-3">
+          <div class="col-4" *ngFor="let photo of photos">
+            <div class="card shadow-sm">
+              <img
+                class="card-img-top"
+                [src]="photo.url"
+                [alt]="product.name + ' photos'"
+              />
+            </div>
+            <div class="btn-group w-100 my-1">
+              <button
+                type="button"
+                class="btn btn-outline-danger w-50"
+                (click)="delete(photo.id)"
+              >
+                Delete
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-primary w-50"
+                routerLink="editproductphotos/{{ photo.id }}"
+              >
+                Edit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

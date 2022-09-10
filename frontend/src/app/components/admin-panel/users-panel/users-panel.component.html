@@ -1,0 +1,48 @@
+<div class="container my-3 d-flex flex-row justify-content-between">
+  <div class="container col-10">
+    <table class="table table-hover text-center align-middle">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <th class="fw-bold" scope="row">
+            {{ users.indexOf(user) + 1 }}
+          </th>
+          <td>
+            {{ user.firstName }}
+          </td>
+          <td>
+            {{ user.lastName }}
+          </td>
+          <td>
+            {{ user.email }}
+          </td>
+          <td>
+            {{ user.phone }}
+          </td>
+          <td class="address">
+            {{ user.address }}
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              (click)="delete(user.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

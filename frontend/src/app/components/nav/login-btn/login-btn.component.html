@@ -1,0 +1,21 @@
+<li class="nav-item px-1" *ngIf="!isLoggedIn">
+  <button
+    type="button"
+    id="login"
+    class="btn btn-outline-primary overflow-hidden"
+    routerLink="/login"
+  >
+    Login
+  </button>
+</li>
+<li class="nav-item" *ngIf="isLoggedIn">
+  <!--  {{user.name}} -->
+  <p class="p-2">Welcome user</p>
+  <button *ngIf="isLoggedIn" type="button" class="btn btn-outline-primary">
+    Profile
+  </button>
+</li>
+<!-- TODO profile and logout buttons -->
+<li class="nav-item px-1" *ngIf="isLoggedIn">
+  <button type="button" class="btn btn-outline-primary">Log out</button>
+</li>

@@ -1,0 +1,17 @@
+table {
+  color: #005eff;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+li,
+td {
+  cursor: pointer;
+}
+
+th {
+  cursor: default;
+}

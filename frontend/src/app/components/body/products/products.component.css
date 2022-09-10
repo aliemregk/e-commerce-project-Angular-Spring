@@ -1,0 +1,35 @@
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.card-img-top {
+  max-height: 10em;
+  min-height: 10em;
+}
+
+p {
+  cursor: default;
+}
+
+.name,
+img {
+  cursor: pointer;
+}
+
+h5,
+p {
+  white-space: nowrap;
+}
+
+.discounted-price {
+  color: red;
+}
+
+.discounted {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+  color: red;
+}
